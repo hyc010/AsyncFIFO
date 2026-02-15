@@ -5,7 +5,7 @@ module fifo_mem #(
     input wclk,
     input winc,
     input wfull,
-    input [DATA_WIDTH-1:0] = wdata,
+    input [DATA_WIDTH-1:0] wdata,
     input [ADDR_WIDTH-1:0] waddr,
     input rclk,
     input rinc,

@@ -1,0 +1,165 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dG:/TUMA/Projects/AsyncFIFO/sim
+vasync_fifo
+Z1 !s110 1771053068
+!i10b 1
+!s100 jJ5=UaNnjNFD0c<PcHUO61
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I1L]>@;3S=K<fKlD?M`HW=3
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1771049871
+8../async_fifo.v
+F../async_fifo.v
+!i122 8
+L0 1 80
+Z4 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z5 !s108 1771053068.000000
+!s107 ../testbench.v|../sync_w2r.v|../sync_r2w.v|../wptr_full.v|../rptr_empty.v|../fifo_mem.v|../defines.vh|../async_fifo.v|
+Z6 !s90 -f|filelist.f|
+!i113 1
+Z7 tCvgOpt 0
+vfifo_mem
+R1
+!i10b 1
+!s100 NDcLEK_m_fFE`SIX;@R;`2
+R2
+I3B6bB9f=]@LC6?I7ePYTR1
+R3
+R0
+w1770958760
+8../fifo_mem.v
+F../fifo_mem.v
+!i122 8
+L0 1 26
+R4
+r1
+!s85 0
+31
+R5
+Z8 !s107 ../testbench.v|../sync_w2r.v|../sync_r2w.v|../wptr_full.v|../rptr_empty.v|../fifo_mem.v|../defines.vh|../async_fifo.v|
+R6
+!i113 1
+R7
+vrptr_empty
+R1
+!i10b 1
+!s100 E1L`7aAjEh?N35H[gfX_D1
+R2
+IXEXPHzColU@E7:0kXnTS63
+R3
+R0
+w1770958782
+8../rptr_empty.v
+F../rptr_empty.v
+!i122 8
+L0 1 45
+R4
+r1
+!s85 0
+31
+R5
+R8
+R6
+!i113 1
+R7
+vsync_r2w
+R1
+!i10b 1
+!s100 am?NAZPH@M5L]Obz6F[Ba1
+R2
+I9KG:Ej^KX>@61FLa9DZLS0
+R3
+R0
+w1770958085
+8../sync_r2w.v
+F../sync_r2w.v
+!i122 8
+Z9 L0 1 23
+R4
+r1
+!s85 0
+31
+R5
+R8
+R6
+!i113 1
+R7
+vsync_w2r
+R1
+!i10b 1
+!s100 dYfQ26oLk<;D`;RX>UB?N1
+R2
+I?]ChU:]<nbj5n`JD@<;a`1
+R3
+R0
+w1770958067
+8../sync_w2r.v
+F../sync_w2r.v
+!i122 8
+R9
+R4
+r1
+!s85 0
+31
+R5
+R8
+R6
+!i113 1
+R7
+vtestbench
+R1
+!i10b 1
+!s100 ;PfGamLY5n16i@bf8JVnJ3
+R2
+IkfYd4F?5lI?eezEbj=]]E1
+R3
+R0
+w1771052238
+8../testbench.v
+F../testbench.v
+!i122 8
+L0 1 63
+R4
+r1
+!s85 0
+31
+R5
+R8
+R6
+!i113 1
+R7
+vwptr_full
+R1
+!i10b 1
+!s100 8UgRLMXdfLSjRW]TPK4a[2
+R2
+I>?jhg7LR_`FSQV6JO[Hio3
+R3
+R0
+w1770958785
+8../wptr_full.v
+F../wptr_full.v
+!i122 8
+L0 1 43
+R4
+r1
+!s85 0
+31
+R5
+R8
+R6
+!i113 1
+R7

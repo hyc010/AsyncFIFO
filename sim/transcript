@@ -1,0 +1,22 @@
+# vsim work.testbench 
+# Start time: 15:11:28 on Feb 14,2026
+# Loading work.testbench
+# Loading work.async_fifo
+# Loading work.rptr_empty
+# Loading work.wptr_full
+# Loading work.fifo_mem
+# Loading work.sync_r2w
+# Loading work.sync_w2r
+add wave -r /testbench/dut/*
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: hanyi  Hostname: HYC000  ProcessID: 54588
+#           Attempting to use alternate WLF file "./wlftzevbbg".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftzevbbg
+run -all
+# ** Note: $finish    : ../testbench.v(54)
+#    Time: 80 ps  Iteration: 0  Instance: /testbench
+# 1
+# Break in Module testbench at ../testbench.v line 54
+# End time: 15:28:40 on Feb 14,2026, Elapsed time: 0:17:12
+# Errors: 0, Warnings: 2
