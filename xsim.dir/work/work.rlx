@@ -1,0 +1,9 @@
+0.7
+2020.2
+Nov  8 2024
+22:36:57
+g:/TUMA/Projects/AsyncFIFO/rtl/async_fifo.sv,1780306466,systemVerilog,,,,async_fifo,,,,,,,,
+g:/TUMA/Projects/AsyncFIFO/tb/afifo_interface.sv,1780310416,systemVerilog,,,,async_fifo_if,,,,,,,,
+g:/TUMA/Projects/AsyncFIFO/tb/afifo_tb_pkg.sv,1780392409,systemVerilog,,,,,,,,,,,,
+g:/TUMA/Projects/AsyncFIFO/tb/dut_wrapper.sv,1780378560,systemVerilog,,,,dut_wrapper,,,,,,,,
+g:/TUMA/Projects/AsyncFIFO/tb/tb_top.sv,1780310772,systemVerilog,,,,,,,,,,,,

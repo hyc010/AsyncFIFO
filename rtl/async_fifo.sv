@@ -18,7 +18,7 @@ wire [ADDR_WIDTH-1:0] waddr, raddr;
 wire [ADDR_WIDTH:0] r2w_rptr, w2r_wptr;
 
 rptr_empty #(
-    ADDR_WIDTH
+    .ADDR_WIDTH(ADDR_WIDTH)
 ) u_rptr_empty (
    .rclk(rclk),
    .rinc(rinc),
@@ -30,7 +30,7 @@ rptr_empty #(
 );
 
 wptr_full #(
-    ADDR_WIDTH
+    .ADDR_WIDTH(ADDR_WIDTH)
 ) u_wptr_full (
    .wclk(wclk),
    .winc(winc),
@@ -42,8 +42,8 @@ wptr_full #(
 );
 
 fifo_mem #(
-    DATA_WIDTH,
-    ADDR_WIDTH
+    .DATA_WIDTH(DATA_WIDTH),
+    .ADDR_WIDTH(ADDR_WIDTH)
 ) u_fifo_mem (
    .rclk(rclk),
    .wclk(wclk),
@@ -58,7 +58,7 @@ fifo_mem #(
 );
 
 sync_r2w #(
-    ADDR_WIDTH
+    .ADDR_WIDTH(ADDR_WIDTH)
 ) u_sync_r2w (
    .wclk(wclk),
    .w_rst_n(w_rst_n),
@@ -67,7 +67,7 @@ sync_r2w #(
 );
 
 sync_w2r #(
-    ADDR_WIDTH
+    .ADDR_WIDTH(ADDR_WIDTH)
 ) u_sync_w2r (
    .rclk(rclk),
    .r_rst_n(r_rst_n),
