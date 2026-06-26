@@ -15,14 +15,14 @@ module dut_wrapper #(
         .winc(dut_if.winc),
         .rinc(dut_if.rinc),
 
-        .w_rst_n (_if.w_rst_n),
-        .r_rst_n (_if.r_rst_n),
+        .w_rst_n (dut_if.w_rst_n),
+        .r_rst_n (dut_if.r_rst_n),
 
-        .wdata   (_if.wdata),
-        .rdata   (_if.rdata),
+        .wdata   (dut_if.wdata),
+        .rdata   (dut_if.rdata),
 
-        .wfull   (_if.wfull),
-        .rempty  (_if.rempty)
+        .wfull   (dut_if.wfull),
+        .rempty  (dut_if.rempty)
     );
 
 endmodule

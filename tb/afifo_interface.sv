@@ -62,7 +62,8 @@ interface async_fifo_if #(
     modport RD_MON (
         clocking rd_mon_cb,
         input rclk,
-        input r_rst_n
+        input r_rst_n,
+        input rdata
     );
 
 

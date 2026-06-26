@@ -1,8 +1,9 @@
-../async_fifo.v
-../defines.vh
-../fifo_mem.v
-../rptr_empty.v
-../wptr_full.v
-../sync_r2w.v
-../sync_w2r.v
-../testbench.v
+../rtl/async_fifo.sv
+../rtl/fifo_mem.sv
+../rtl/rptr_empty.sv
+../rtl/wptr_full.sv
+../rtl/sync_dff.sv
+../tb/afifo_interface.sv
+../tb/afifo_tb_pkg.sv
+../tb/dut_wrapper.sv
+../tb/tb_top.sv

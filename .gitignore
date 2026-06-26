@@ -1,0 +1,43 @@
+# Vivado XSim build artifacts
+xsim.dir/
+xsim.jou
+xsim.log
+xsim_*.backup.jou
+xsim_*.backup.log
+xsim.covdb/
+xvlog.log
+xvlog.pb
+xelab.log
+xelab.pb
+
+# Simulation work directories
+work/
+work.tb_top.wdb
+
+# Coverage outputs
+cov_runs/
+cov_merged/
+cov_report/
+cov_report_*/
+regression_logs/
+xcrg*.log
+covdblist*.txt
+
+# Generated / temporary files
+tb/test_select.svh
+tb/uvm_macros.svh
+test_arg.tcl
+
+# ModelSim / QuestaSim
+work/_*
+work/_dpi/
+*.wdb
+
+# Log files
+full_log.txt
+tr_db.log
+
+# Study notes (not source code)
+AsyncFIFO_修改知识点总结.md
+AsyncFIFO_面试知识点精讲.md
+修改意见_AsyncFIFO.md

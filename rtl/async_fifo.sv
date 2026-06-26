@@ -13,68 +13,74 @@ module async_fifo #(
     output wfull,
     output rempty
 );
-wire [ADDR_WIDTH:0] wptr, rptr;
-wire [ADDR_WIDTH-1:0] waddr, raddr;
-wire [ADDR_WIDTH:0] r2w_rptr, w2r_wptr;
+    wire [ADDR_WIDTH:0] wptr, rptr;
+    wire [ADDR_WIDTH-1:0] waddr, raddr;
+    wire [ADDR_WIDTH:0] r2w_rptr, w2r_wptr;
+    wire fifo_wen, fifo_ren;
 
-rptr_empty #(
-    .ADDR_WIDTH(ADDR_WIDTH)
-) u_rptr_empty (
-   .rclk(rclk),
-   .rinc(rinc),
-   .raddr(raddr),
-   .w2r_wptr(w2r_wptr),
-   .r_rst_n(r_rst_n),
-   .rptr(rptr),
-   .rempty(rempty)
-);
+    // Generate actual memory enable signals
+    assign fifo_wen = winc & ~wfull;
+    assign fifo_ren = rinc & ~rempty;
 
-wptr_full #(
-    .ADDR_WIDTH(ADDR_WIDTH)
-) u_wptr_full (
-   .wclk(wclk),
-   .winc(winc),
-   .waddr(waddr),
-   .r2w_rptr(r2w_rptr),
-   .w_rst_n(w_rst_n),
-   .wptr(wptr),
-   .wfull(wfull)
-);
+    rptr_empty #(
+        .ADDR_WIDTH(ADDR_WIDTH)
+    ) u_rptr_empty (
+        .rclk(rclk),
+        .rinc(rinc),
+        .raddr(raddr),
+        .w2r_wptr(w2r_wptr),
+        .r_rst_n(r_rst_n),
+        .rptr(rptr),
+        .rempty(rempty)
+    );
 
-fifo_mem #(
-    .DATA_WIDTH(DATA_WIDTH),
-    .ADDR_WIDTH(ADDR_WIDTH)
-) u_fifo_mem (
-   .rclk(rclk),
-   .wclk(wclk),
-   .winc(winc),
-   .rinc(rinc),
-   .wdata(wdata),
-   .rdata(rdata),
-   .waddr(waddr),
-   .raddr(raddr),
-   .wfull(wfull),
-   .rempty(rempty)
-);
+    wptr_full #(
+        .ADDR_WIDTH(ADDR_WIDTH)
+    ) u_wptr_full (
+        .wclk(wclk),
+        .winc(winc),
+        .waddr(waddr),
+        .r2w_rptr(r2w_rptr),
+        .w_rst_n(w_rst_n),
+        .wptr(wptr),
+        .wfull(wfull)
+    );
 
-sync_r2w #(
-    .ADDR_WIDTH(ADDR_WIDTH)
-) u_sync_r2w (
-   .wclk(wclk),
-   .w_rst_n(w_rst_n),
-   .rptr(rptr),
-   .r2w_rptr(r2w_rptr)
-);
+    fifo_mem #(
+        .DATA_WIDTH(DATA_WIDTH),
+        .ADDR_WIDTH(ADDR_WIDTH),
+        .FALL_THROUGH(0)
+    ) u_fifo_mem (
+        .wclk(wclk),
+        .wen(fifo_wen),
+        .waddr(waddr),
+        .wdata(wdata),
+        .rclk(rclk),
+        .r_rst_n(r_rst_n),
+        .ren(fifo_ren),
+        .raddr(raddr),
+        .rdata(rdata)
+    );
 
-sync_w2r #(
-    .ADDR_WIDTH(ADDR_WIDTH)
-) u_sync_w2r (
-   .rclk(rclk),
-   .r_rst_n(r_rst_n),
-   .wptr(wptr),
-   .w2r_wptr(w2r_wptr)
-);
+    // Reusable synchronizer: read pointer → write clock domain
+    sync_dff #(
+        .WIDTH(ADDR_WIDTH + 1),
+        .SYNC_DPTH(2)
+    ) u_sync_r2w (
+        .clk(wclk),
+        .rst_n(w_rst_n),
+        .in(rptr),
+        .out(r2w_rptr)
+    );
 
-
-
+    // Reusable synchronizer: write pointer → read clock domain
+    sync_dff #(
+        .WIDTH(ADDR_WIDTH + 1),
+        .SYNC_DPTH(2)
+    ) u_sync_w2r (
+        .clk(rclk),
+        .rst_n(r_rst_n),
+        .in(wptr),
+        .out(w2r_wptr)
+    );
 endmodule
